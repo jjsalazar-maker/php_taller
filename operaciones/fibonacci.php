@@ -28,12 +28,14 @@ $numero = $_POST['numero'];
             $b = $siguiente;
         }
 
+
     }
 }
 
 $numero = $_POST['numero'] ?? 0;
 
 $fibonacci = new Fibonacci((int)$numero);
+
 $fibonacci->mostrarSerie();
 ?>
 
@@ -47,7 +49,7 @@ $fibonacci->mostrarSerie();
 </head>
 <body>
     <div class="menu-apps">
-
+        
     </div>
 </body>
 </html>
