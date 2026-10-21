@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #243447;
+}
+
+/* Contenedor del menú: CSS Grid */
+.menu-apps {
+    display: grid;
+
+    /* Crea columnas de tamaño adaptable */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    /* Espacio entre filas y columnas */
+    gap: 20px;
+
+    /* Ancho máximo y centrado del menú */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada enlace */
+.menu-apps a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 120px;
+    padding: 20px;
+
+    background-color: #ffffff;
+    color: #2563eb;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    border: 1px solid #dce3ec;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease,
+                background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.menu-apps a:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.menu-apps form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 120px;
+    padding: 20px;
+
+    background-color: #ffffff;
+    color: #2563eb;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    border: 1px solid #dce3ec;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease,
+                background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+button {
+    align-self: right;
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
