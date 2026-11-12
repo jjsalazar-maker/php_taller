@@ -11,7 +11,7 @@ $error = "";
 $entrada = trim($_POST["numeros"] ?? "");
 $recorridos = $_POST["recorridos"] ?? [];
 
-// 1. VALIDAR LOS NÚMEROS
+//VALIDAR LOS NÚMEROS
 
 $numeros = [];
 
@@ -61,47 +61,42 @@ if (empty($partes)) {
 
 }
 
-// ======================================
-// 2. VALIDAR LOS RECORRIDOS
-// ======================================
-
-$permitidos = [
-    "preorden",
-    "inorden",
-    "postorden"
-];
+//VALIDAR LOS RECORRIDOS
+$permitidos = ["preorden", "inorden", "postorden"];
 
 if ($error === "") {
 
-    if (!is_array($recorridos) || count($recorridos) !== 2) {
-
-        $error = "Debe seleccionar exactamente dos recorridos.";
+    if (!is_array($recorridos)) {
+        $error = "Debe seleccionar al menos dos recorridos.";
 
     } else {
 
+        // Validar que todos sean recorridos permitidos
         foreach ($recorridos as $tipo) {
-
             if (!is_string($tipo) || !in_array($tipo, $permitidos, true)) {
-
                 $error = "Se seleccionó un recorrido no válido.";
                 break;
-
             }
-
         }
 
-        if (count(array_unique($recorridos)) !== 2) {
-            $error = "Los recorridos seleccionados deben ser diferentes.";
-        }
+        if ($error === "") {
 
+            // Eliminar posibles valores duplicados
+            $recorridos = array_unique($recorridos);
+
+            if (count($recorridos) < 2) {
+                $error = "Debe seleccionar al menos dos recorridos.";
+
+            } elseif (count($recorridos) === 3) {
+
+                // Si seleccionó los tres, utilizar Preorden e Inorden
+                $recorridos = ["preorden", "inorden"];
+            }
+        }
     }
-
 }
 
-// ======================================
 // 3. CONSTRUIR UN NODO DEL ÁRBOL
-// ======================================
-
 function crearNodo(int $valor): array
 {
     return [
@@ -140,10 +135,7 @@ function insertarNodo(?array $raiz, int $valor): array
     return $raiz;
 }
 
-// ======================================
-// 5. CONSTRUIR EL ÁRBOL COMPLETO
-// ======================================
-
+//CONSTRUIR EL ÁRBOL COMPLETO
 function construirArbol(array $numeros): ?array
 {
     $raiz = null;
@@ -157,10 +149,7 @@ function construirArbol(array $numeros): ?array
     return $raiz;
 }
 
-// ======================================
-// 6. RECORRIDO PREORDEN
-// ======================================
-
+//RECORRIDO PREORDEN
 function preorden(?array $nodo): array
 {
     if ($nodo === null) {
@@ -174,9 +163,7 @@ function preorden(?array $nodo): array
     );
 }
 
-// ======================================
-// 7. RECORRIDO INORDEN
-// ======================================
+//RECORRIDO INORDEN
 
 function inorden(?array $nodo): array
 {
@@ -191,9 +178,7 @@ function inorden(?array $nodo): array
     );
 }
 
-// ======================================
-// 8. RECORRIDO POSTORDEN
-// ======================================
+//RECORRIDO POSTORDEN
 
 function postorden(?array $nodo): array
 {
@@ -208,9 +193,7 @@ function postorden(?array $nodo): array
     );
 }
 
-// ======================================
-// 9. OBTENER EL RECORRIDO SELECCIONADO
-// ======================================
+//OBTENER EL RECORRIDO SELECCIONADO
 
 function obtenerRecorrido(
     ?array $raiz,
@@ -234,9 +217,7 @@ function obtenerRecorrido(
     }
 }
 
-// ======================================
 // 10. GENERAR EL GRAFO HTML
-// ======================================
 
 function dibujarArbol(?array $nodo): string
 {
@@ -291,9 +272,7 @@ function dibujarArbol(?array $nodo): string
     return $html;
 }
 
-// ======================================
 // 11. CONSTRUIR LOS DOS ÁRBOLES
-// ======================================
 
 if ($error === "") {
 
@@ -313,48 +292,30 @@ if ($error === "") {
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../css/flexbox.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/flexbox_arbol.css">
     <title>Resultado de los árboles</title>
-
 </head>
 
 <body>
-
     <main class="contenedor-estadisticas">
-
         <h1>Resultado de los árboles binarios</h1>
-
         <?php if ($error !== ""): ?>
-
             <div class="mensaje-error">
-
                 <?php echo htmlspecialchars(
                     $error,
                     ENT_QUOTES,
                     "UTF-8"
                 ); ?>
-
             </div>
-
         <?php else: ?>
-
             <p class="secuencia-original">
-
                 <strong>Secuencia ingresada:</strong>
-
                 <?php echo implode(" → ", $numeros); ?>
-
             </p>
 
             <?php
-
             $arboles = [
                 [
                     "titulo" => "Árbol 1",
@@ -377,9 +338,7 @@ if ($error === "") {
                     $raizActual,
                     $tipo
                 );
-
             ?>
-
                 <section class="seccion-arbol">
 
                     <h2>
@@ -388,54 +347,26 @@ if ($error === "") {
                     </h2>
 
                     <p class="descripcion-arbol">
-
                         Orden de inserción:
                         <?php echo $arbolActual["orden"]; ?>
-
                     </p>
 
                     <div class="arbol-contenedor">
 
                         <div class="arbol">
-
-                            <ul>
-
-                                <?php
-                                echo dibujarArbol($raizActual);
-                                ?>
-
-                            </ul>
-
+                            <ul> <?php echo dibujarArbol($raizActual);?></ul>
                         </div>
-
                     </div>
 
                     <div class="recorrido-resultado">
-
-                        <h3>
-                            Recorrido <?php echo ucfirst($tipo); ?>
-                        </h3>
-
-                        <p>
-
-                            <?php
-                            echo implode(" → ", $resultado);
-                            ?>
-
-                        </p>
-
+                        <h3> Recorrido <?php echo ucfirst($tipo); ?> </h3>
+                        <p> <?php echo implode(" → ", $resultado);?> </p>
                     </div>
-
                 </section>
-
             <?php endforeach; ?>
-
         <?php endif; ?>
 
-        <a
-            class="boton-volver"
-            href="../aplicaciones/arbol.php"
-        >
+        <a class="boton-volver" href="../aplicaciones/arbol.php">
             Volver al formulario
         </a>
 

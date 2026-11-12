@@ -15,7 +15,7 @@
         <a href="aplicaciones/poblacion.php">Medidas de tendencia central</a>
         <a href="aplicaciones/conjuntos.php">Operaciones con conjuntos</a>
         <a href="aplicaciones/decimal.php">Conversor decimal->binario</a>
-        <a href="aplicaciones/arboles.php">Constructo de arboles binarios</a>
+        <a href="aplicaciones/arboles.php">Constructor de arboles binarios</a>
         <a href="aplicaciones/calculadora.php">Calculadora basica</a>
 </div>
     <br>
