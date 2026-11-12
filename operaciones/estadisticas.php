@@ -84,7 +84,6 @@ class TendenciaCentral
             echo '</div>';
 
             echo '<a href="../index.php">volver al menú</a>';
-
             echo '</div>';
         }
 
@@ -111,5 +110,6 @@ $estadisticas = new TendenciaCentral($datos);
     $estadisticas->mostrarResultados();
     ?>
 
+    
 </body>
 </html>

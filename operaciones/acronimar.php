@@ -31,7 +31,6 @@ $phrase = $_POST['phrase'] ?? '';
 
 $acronimo = new Acronimo($phrase);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,7 +45,6 @@ $acronimo = new Acronimo($phrase);
         <h2> <?php echo  $acronimo->generar() ?> </h2>
         <a href="../index.php">volver al menú</a>
     </div>
-
 </body>
 </html>
 

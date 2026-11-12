@@ -11,7 +11,6 @@ class Factorial
     }
 
     public function mostrarFactorial(): string
-
     {
 
         $factorial = 1;
@@ -31,12 +30,10 @@ class Factorial
         }
 
         return $secuencia . " = " . $factorial;
-
     }
 }
 
 $numero = $_POST['numero'] ?? 0;
-
 
 $factorial = new Factorial($numero);
 ?>

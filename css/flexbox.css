@@ -165,3 +165,230 @@ button {
 button:hover {
     background-color: #1d4ed8;
 }
+
+
+/* Selección de recorridos */
+.seleccion-recorridos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.opcion-recorrido {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+
+    background-color: #eaf2ff;
+    border: 1px solid #cbdcfb;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.opcion-recorrido input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+/* Secciones de los árboles */
+.seccion-arbol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    padding: 25px 10px;
+
+    border: 1px solid #dce3ec;
+    border-radius: 10px;
+    background-color: #fafcff;
+}
+
+.descripcion-arbol,
+.secuencia-original {
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* Área gráfica */
+.arbol-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px 35px;
+}
+
+.arbol {
+    width: max-content;
+    min-width: 100%;
+}
+
+.arbol ul {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    margin: 0;
+    padding: 35px 0 0;
+}
+
+.arbol > ul {
+    padding-top: 0;
+}
+
+.arbol li {
+    list-style: none;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    padding: 35px 12px 0;
+}
+
+/* Conectores */
+.arbol li::before,
+.arbol li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+
+    width: 50%;
+    height: 35px;
+
+    border-top: 2px solid #94a3b8;
+}
+
+.arbol li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #94a3b8;
+}
+
+.arbol li:only-child::before,
+.arbol li:only-child::after {
+    display: none;
+}
+
+.arbol li:only-child {
+    padding-top: 0;
+}
+
+.arbol li:first-child::before {
+    border: none;
+}
+
+.arbol li:last-child::after {
+    border: none;
+}
+
+.arbol li:first-child::after {
+    border-radius: 6px 0 0 0;
+}
+
+.arbol li:last-child::before {
+    border-right: 2px solid #94a3b8;
+    border-radius: 0 6px 0 0;
+}
+
+.arbol li ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 35px;
+    border-left: 2px solid #94a3b8;
+}
+
+/* Nodos */
+.nodo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    height: 48px;
+    padding: 5px;
+
+    background-color: #2563eb;
+    color: white;
+
+    border: 2px solid #1d4ed8;
+    border-radius: 50%;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Recorrido */
+.recorrido-resultado {
+    width: 100%;
+    padding: 15px;
+
+    background-color: #eaf2ff;
+    border: 1px solid #cbdcfb;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.recorrido-resultado h3 {
+    margin: 0 0 12px;
+    color: #2563eb;
+}
+
+.recorrido-resultado p {
+    margin: 0;
+    font-size: 19px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* Error */
+.mensaje-error {
+    padding: 15px;
+    width: 100%;
+
+    background-color: #fee2e2;
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+
+    .arbol-contenedor {
+        justify-content: flex-start;
+    }
+
+    .arbol li {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .nodo {
+        min-width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .recorrido-resultado p {
+        font-size: 16px;
+    }
+}

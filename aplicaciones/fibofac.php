@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci/Factorial</title>
+    <link rel="stylesheet" href="../css/float.css">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
         <p>¿Que desea obtener?</p>
 
-        <div class="botones">
+        <div>
             <button formaction="../operaciones/fibonacci.php">Fibonacci</button>
 
             <button formaction="../operaciones/factorial.php">Factorial</button>

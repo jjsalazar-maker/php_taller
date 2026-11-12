@@ -1,40 +1,101 @@
+
+<?php
+
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // El formulario envía los datos al archivo de construcción.
+    header("Location: ../operaciones/construir_arbol.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/flexbox.css">
+
     <title>Constructor de árboles binarios</title>
+
 </head>
+
 <body>
 
-    <h1>Árbol binario</h1>
+    <main class="contenedor-estadisticas">
 
-    <p>Ingrese al menos dos recorridos.</p>
-    <p>Separe los nodos con comas: A,B,D,E,C</p>
+        <h1>Constructor de árboles binarios</h1>
 
-    <form action="../operaciones/construir_arbol.php"
-          method="POST">
+        <form class="formulario-datos" action="../operaciones/construir_arbol.php" method="POST">
 
-        <label for="preorden">Preorden:</label>
-        <input type="text" id="preorden" name="preorden">
+            <h2>Ingrese los números enteros</h2>
 
-        <br><br>
+            <div class="dato">
 
-        <label for="inorden">Inorden:</label>
-        <input type="text" id="inorden" name="inorden">
+                <label for="numeros">
+                    Secuencia de números
+                </label>
 
-        <br><br>
+                <input
+                    type="text"
+                    id="numeros"
+                    name="numeros"
+                    placeholder="Ejemplo: 7, 4, 3, 5, 9, 8, 12"
+                    required
+                >
 
-        <label for="postorden">Postorden:</label>
-        <input type="text" id="postorden" name="postorden">
+                <small>
+                    Separe los números utilizando comas o espacios.
+                    No se permiten números repetidos.
+                </small>
 
-        <br><br>
+            </div>
 
-        <button type="submit">Construir árbol</button>
+            <h2>Seleccione dos recorridos</h2>
 
-    </form>
+            <div class="seleccion-recorridos">
 
-    <a href="../index.php">Volver al menú</a>
+                <label class="opcion-recorrido">
+
+                    <input type="checkbox" name="recorridos[]" value="preorden">
+
+                    Preorden
+
+                </label>
+
+                <label class="opcion-recorrido">
+
+                    <input type="checkbox" name="recorridos[]" value="inorden">
+
+                    Inorden
+
+                </label>
+
+                <label class="opcion-recorrido">
+
+                    <input type="checkbox" name="recorridos[]" value="postorden">
+
+                    Postorden
+
+                </label>
+
+            </div>
+
+            <button type="submit">
+                Construir árboles
+            </button>
+
+        </form>
+
+    </main>
 
 </body>
+
 </html>
