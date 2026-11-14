@@ -61,6 +61,7 @@ $binario = $ejecutar->convertir();
             <p class="resultado">
                 <?php echo $binario; ?>
             </p>
+            <a href="../index.php">volver al menú</a>
         </section>
 </body>
 </html>
