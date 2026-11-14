@@ -41,10 +41,6 @@ class Calculadora
             case "%":
                 return $this->first % $this->second;
 
-            default:
-                throw new InvalidArgumentException(
-                    "La operación seleccionada no es válida."
-                );
 
         }
     }
@@ -84,7 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $operation = $_POST["operacion"];
 
         try {
-
             $calculadora = new Calculadora(
                 $first,
                 $second,
@@ -152,16 +147,11 @@ $historial = $_SESSION["historial"];
         <hr>
 
         <h2>Historial de operaciones</h2>
-
         <?php if (empty($historial)): ?>
-
             <p>No hay operaciones registradas.</p>
-
         <?php else: ?>
-
             <ol>
                 <?php foreach ($historial as $registro): ?>
-
                     <li>
                         <?php
                         echo htmlspecialchars(
@@ -175,7 +165,6 @@ $historial = $_SESSION["historial"];
                         );
                         ?>
                     </li>
-
                 <?php endforeach; ?>
             </ol>
 

@@ -29,7 +29,8 @@ class Factorial
             return "0! = 1";
         }
 
-        return $secuencia . " = " . $factorial;
+        $secuencia .= " = " . $factorial;
+        return $secuencia;
     }
 }
 
