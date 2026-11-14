@@ -1,4 +1,4 @@
-/* Configuración general */
+
 * {
     box-sizing: border-box;
 }
@@ -11,7 +11,7 @@ body {
     color: #252b36;
 }
 
-/* Encabezado */
+
 .encabezado {
     background-color: #243b55;
     color: white;
@@ -19,7 +19,7 @@ body {
     padding: 25px;
 }
 
-/* Contenedor principal */
+
 .contenedor {
     width: 90%;
     max-width: 1000px;
@@ -40,7 +40,7 @@ a:hover {
     background-color: #0056b3;
 }
 
-/* Columna principal: ocupa el 65% */
+
 .columna-principal {
     float: left;
     width: 65%;
@@ -50,7 +50,7 @@ a:hover {
     box-shadow: 0 2px 8px #00000015;
 }
 
-/* Columna lateral: ocupa el 30% */
+
 .columna-lateral {
     float: right;
     width: 30%;
@@ -59,7 +59,7 @@ a:hover {
     border-radius: 8px;
 }
 
-/* Formulario */
+
 form label {
     display: block;
     margin-bottom: 10px;
@@ -86,7 +86,7 @@ form button:hover {
     background-color: #194879;
 }
 
-/* Resultado binario */
+
 .resultado {
     font-size: 2rem;
     font-weight: bold;
@@ -94,12 +94,12 @@ form button:hover {
     overflow-wrap: anywhere;
 }
 
-/* Limpiar los elementos flotantes */
+
 .limpiar {
     clear: both;
 }
 
-/* Pie de página */
+
 .pie {
     clear: both;
     margin-top: 30px;

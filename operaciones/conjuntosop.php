@@ -24,15 +24,17 @@ function crearConjunto(string $entrada): array
 
         // Validar que cada elemento sea un número.
         if ($parte === "" || !is_numeric($parte)) {
+            echo '<a href="../aplicaciones/conjuntos.php">volver al formulario</a>';
             throw new InvalidArgumentException(
-                "Todos los elementos deben ser números separados por comas."
-            );
+            "Todos los elementos deben ser números y separados por comas.");
         }
 
         $numero = (float) $parte;
 
         if (!is_finite($numero)) {
+            echo '<a href="../aplicaciones/conjuntos.php">volver al fomrulario</a>';
             throw new InvalidArgumentException("Los números deben ser finitos.");
+
         }
 
         // Evitar elementos repetidos.

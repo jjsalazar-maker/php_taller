@@ -19,6 +19,7 @@
         </div>
 
         <button type="submit">operar conjuntos</button>
+        <a href="../index.php">volver al menu</a>
     </form>
 </body>
 </html>
