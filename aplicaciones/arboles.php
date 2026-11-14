@@ -80,9 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </div>
 
-            <button type="submit">
-                Construir árboles
-            </button>
+            <button type="submit"> Construir árboles </button>
+            <a href="../index.php">volver al menú</a>
 
         </form>
 

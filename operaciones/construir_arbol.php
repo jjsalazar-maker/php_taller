@@ -347,10 +347,8 @@ if ($error === "") {
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <a class="boton-volver" href="../aplicaciones/arboles.php">
-            Volver al formulario
-        </a>
-
+        <a class="boton-volver" href="../aplicaciones/arboles.php">Volver al formulario</a>
+        <a class="boton-volver" href="../index.php">Volver al menú</a>
     </main>
 
 </body>
