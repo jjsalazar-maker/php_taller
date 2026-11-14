@@ -83,7 +83,7 @@ class TendenciaCentral
             echo '<p>' . $this->moda() . '</p>';
             echo '</div>';
 
-            echo '<a href="../index.php">volver al menú</a>';
+            echo '<a class="regresar" href="../index.php">volver al menú</a>';
             echo '</div>';
         }
 
@@ -106,10 +106,6 @@ $estadisticas = new TendenciaCentral($datos);
 </head>
 <body>
 
-    <?php
-    $estadisticas->mostrarResultados();
-    ?>
-
-    
+    <?php $estadisticas->mostrarResultados();?>
 </body>
 </html>

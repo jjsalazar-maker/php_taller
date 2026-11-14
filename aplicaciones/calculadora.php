@@ -30,6 +30,7 @@
         </form>
 
         <a href="../index.php">Volver al menú</a>
+        
     </div>    
 </body>
 </html>

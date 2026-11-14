@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../aplicaciones/arbol.php");
+    header("Location: ../aplicaciones/arboles.php");
     exit;
 }
 
@@ -96,7 +96,7 @@ if ($error === "") {
     }
 }
 
-// 3. CONSTRUIR UN NODO DEL ÁRBOL
+//CONSTRUIR UN NODO DEL ÁRBOL
 function crearNodo(int $valor): array
 {
     return [
@@ -106,9 +106,7 @@ function crearNodo(int $valor): array
     ];
 }
 
-// ======================================
-// 4. INSERTAR UN NÚMERO EN EL ABB
-// ======================================
+//INSERTAR UN NÚMERO EN EL ABB
 
 function insertarNodo(?array $raiz, int $valor): array
 {
@@ -131,25 +129,20 @@ function insertarNodo(?array $raiz, int $valor): array
         );
 
     }
-
     return $raiz;
 }
 
-//CONSTRUIR EL ÁRBOL COMPLETO
 function construirArbol(array $numeros): ?array
 {
     $raiz = null;
-
     foreach ($numeros as $numero) {
 
         $raiz = insertarNodo($raiz, $numero);
 
     }
-
     return $raiz;
 }
 
-//RECORRIDO PREORDEN
 function preorden(?array $nodo): array
 {
     if ($nodo === null) {
@@ -163,8 +156,6 @@ function preorden(?array $nodo): array
     );
 }
 
-//RECORRIDO INORDEN
-
 function inorden(?array $nodo): array
 {
     if ($nodo === null) {
@@ -177,8 +168,6 @@ function inorden(?array $nodo): array
         inorden($nodo["derecha"])
     );
 }
-
-//RECORRIDO POSTORDEN
 
 function postorden(?array $nodo): array
 {
@@ -194,7 +183,6 @@ function postorden(?array $nodo): array
 }
 
 //OBTENER EL RECORRIDO SELECCIONADO
-
 function obtenerRecorrido(
     ?array $raiz,
     string $tipo
@@ -217,8 +205,7 @@ function obtenerRecorrido(
     }
 }
 
-// 10. GENERAR EL GRAFO HTML
-
+//GENERAR EL GRAFO HTML
 function dibujarArbol(?array $nodo): string
 {
     if ($nodo === null) {
@@ -260,20 +247,14 @@ function dibujarArbol(?array $nodo): string
             $html .= dibujarArbol(
                 $nodo["derecha"]
             );
-
         }
-
         $html .= "</ul>";
-
     }
-
     $html .= "</li>";
-
     return $html;
 }
 
-// 11. CONSTRUIR LOS DOS ÁRBOLES
-
+//CONSTRUIR LOS DOS ÁRBOLES
 if ($error === "") {
 
     // Árbol 1: secuencia original.
@@ -366,7 +347,7 @@ if ($error === "") {
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <a class="boton-volver" href="../aplicaciones/arbol.php">
+        <a class="boton-volver" href="../aplicaciones/arboles.php">
             Volver al formulario
         </a>
 

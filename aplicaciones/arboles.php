@@ -63,25 +63,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="seleccion-recorridos">
 
                 <label class="opcion-recorrido">
-
                     <input type="checkbox" name="recorridos[]" value="preorden">
-
                     Preorden
-
                 </label>
 
                 <label class="opcion-recorrido">
-
                     <input type="checkbox" name="recorridos[]" value="inorden">
-
                     Inorden
-
                 </label>
 
                 <label class="opcion-recorrido">
-
                     <input type="checkbox" name="recorridos[]" value="postorden">
-
                     Postorden
 
                 </label>
